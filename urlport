@@ -9,12 +9,13 @@ echo "cara penggunaan: tanpa tanda kurung kurawal "
 echo "di bash ketik = ./urlport {url} {path atau file}  >> hasil.txt			 "
 echo "*******************************************"
 while read port; do
-	#rubah destinasi dari urlnya dibawah
+	#curl apakah itu adalah response http atau https dengan standerr
 	if `echo curl -ikL $1:$port -v 2> /dev/null` ;then
 	echo "vuln.cilsy.id:$port :  INI BRO!";
 		else
+		#yang lain 0> atau 1>
 	echo "vuln.cilsy.id:$port : BUKAN BRO!"
 	fi
-	#yang dibawah nmap4.txt maksudnya untuk daftar port yang sudah discan dengan nmap
+	#yang dibawah nmapport.txt maksudnya untuk daftar port yang sudah discan dengan nmap
 done < $2
 
